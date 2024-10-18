@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket JWT</title>
+</head>
+<body>
+    <h1>WebSocket JWT Token Validation</h1>
+    <button id="connectButton">Connect and Send Token</button>
+
+    <script>
+        document.getElementById('connectButton').addEventListener('click', function () {
+            // Substitua pela URL correta do WebSocket no seu servidor
+            const socketUrl = "ws://localhost:5000/ws";
+            const socket = new WebSocket(socketUrl);
+
+            // Exemplo de token JWT
+            const token = "seu_token_jwt_aqui";
+
+            // Quando a conexão for aberta
+            socket.onopen = function () {
+                console.log("Conectado ao WebSocket!");
+
+                // Enviar o token JWT como mensagem no formato JSON
+                const message = JSON.stringify({ token: token });
+                socket.send(message);
+                console.log("Token JWT enviado:", message);
+            };
+
+            // Quando receber uma mensagem do servidor
+            socket.onmessage = function (event) {
+                console.log("Mensagem recebida do servidor:", event.data);
+            };
+
+            // Quando ocorrer um erro
+            socket.onerror = function (error) {
+                console.log("Erro no WebSocket:", error);
+            };
+
+            // Quando a conexão for fechada
+            socket.onclose = function (event) {
+                console.log("Conexão WebSocket fechada:", event);
+            };
+        });
+    </script>
+</body>
+</html>

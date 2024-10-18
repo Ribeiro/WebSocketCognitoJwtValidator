@@ -1,0 +1,30 @@
+# Compiled source files
+bin/
+obj/
+out/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+.scaffolding
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+
+# Visual Studio Mac
+.idea/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+logs/
+log/
